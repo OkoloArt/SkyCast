@@ -12,13 +12,13 @@ const config = {
   headers: { appid: appKey },
 };
 
-let data;
+let dataResult;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { weatherData: data });
+  res.render("index.ejs", { weatherData: dataResult });
 });
 
 app.post("/submit", async (req, res) => {
@@ -43,7 +43,7 @@ app.post("/submit", async (req, res) => {
       },
     });
 
-    data = {
+    dataResult = {
       description: weatherResult.data.weather[0].description,
       temp: Math.floor(weatherResult.data.main.temp),
       feelLike: Math.floor(weatherResult.data.main.feels_like),
@@ -54,7 +54,18 @@ app.post("/submit", async (req, res) => {
 
     res.redirect("/");
   } catch (error) {
-    console.log(error.response.data);
+    if (error.response) {
+      // If there is a response object in the error, handle it
+      dataResult = {
+        logError: error.response.data,
+      };
+    } else {
+      // If there is no response object, handle it accordingly
+      dataResult = {
+        logError: "An error occurred, but no detailed response was provided.",
+      };
+    }
+    res.redirect("/");
   }
 });
 

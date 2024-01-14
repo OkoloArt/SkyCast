@@ -28,7 +28,7 @@
         </form>
       </div>
       <div class="weatherReport">
-        <% if (locals.weatherData) { %>
+        <% if (locals.weatherData && !locals.weatherData.logError) { %>
         <div class="showWeatherData">
           <h6><img src="images/world.png" alt="" /><%= weatherData.name %></h6>
           <h5>Today</h5>
@@ -69,6 +69,8 @@
             </div>
           </div>
         </div>
+        <% } else if (locals.weatherData && locals.weatherData.logError) { %>
+        <h6><%= locals.weatherData.logError %></h6>
         <% } else { %>
         <h6>
           Unable to retrieve weather information. <br />
