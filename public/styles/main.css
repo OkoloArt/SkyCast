@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background: transparent;
+  backdrop-filter: blur(5px);
+}
+
+.searchName {
+  display: flex;
+  max-width: 450px;
+  min-width: 450px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 35px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.input:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  border: 2px solid grey;
+}
+
+button {
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+  width: 9em;
+  height: 30px;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+button:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+button:hover::before {
+  filter: blur(20px);
+}
+
+button:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+}
+
+.daily-data-card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.daily-data .time {
+  font-size: 0.8rem;
+  font-family: cursive;
+  text-decoration-line: underline;
+}
+
+.daily-data p:nth-of-type(2) {
+  font-family: cursive;
+  margin-top: 0.1rem;
+}
+
+.daily-data img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: text-bottom;
+}
+
+.showWeatherData {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 25px 60px;
+  margin-top: 30px;
+  border-radius: 25px;
+  min-width: 350px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.showWeatherData h6 {
+  font-size: 1.5rem;
+  padding: 12px;
+  font-family: cursive;
+}
+
+.showWeatherData > h6 > img {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.showWeatherData h5 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  font-family: cursive;
+}
+
+.temp-card {
+  margin-top: 30px;
+  gap: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.temp-card > p {
+  font-family: cursive;
+  font-size: 5rem;
+}
+
+.temp-date-card p:nth-of-type(1) {
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.temp-date-card p:nth-of-type(2) {
+  font-weight: lighter;
+  margin-top: 6px;
+  font-family: cursive;
+}
+
+.temp-date-card p:nth-of-type(3) {
+  font-weight: bold;
+  font-size: x-large;
+  margin-top: 15px;
+  font-family: cursive;
+}
+
+.temp-alt-data p {
+  font-family: cursive;
+  padding: 6px;
+  text-transform: capitalize;
+}
+
+.weatherReport {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.weatherReport > h6 {
+  font-size: 1.5rem;
+  padding: 12px 25px;
+  text-align: center;
+  font-family: cursive;
+  color: white;
+  margin-top: 20px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .showWeatherData {
+    padding: 15px;
+    min-width: 300px;
+    max-width: 500px;
+  }
+
+  .daily-data-card {
+    margin-top: 15px;
+    padding-right: 20px;
+  }
+
+  .temp-card {
+    margin-top: 20px;
+  }
+
+  /* Adjust text sizes for smaller screens */
+  .showWeatherData h6 {
+    font-size: 1.2rem;
+  }
+
+  .daily-data .time {
+    font-size: 0.7rem;
+  }
+
+  .daily-data p:nth-of-type(2) {
+    font-size: 1rem;
+  }
+
+  .temp-card > p {
+    font-size: 3rem;
+  }
+
+  .temp-date-card p:nth-of-type(1) {
+    font-size: 1rem;
+  }
+
+  .temp-date-card p:nth-of-type(2) {
+    font-size: 0.8rem;
+  }
+
+  .temp-date-card p:nth-of-type(3) {
+    font-size: 1rem;
+  }
+
+  .temp-alt-data p {
+    font-size: 0.8rem;
+  }
+
+  .weatherReport > h6 {
+    font-size: 1rem;
+  }
+
+  .searchName {
+    max-width: 400px;
+    width: 100%;
+    min-width: 300px;
+    gap: 1.5rem;
+  }
+
+  .input {
+    height: 30px;
+    padding: 10px;
+  }
+
+  button {
+    height: 25px;
+    line-height: 1.5em;
+  }
+}

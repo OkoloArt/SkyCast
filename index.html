@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="searchName">
+        <input
+          placeholder="Enter a Location....."
+          type="text"
+          name="text"
+          class="input"
+        />
+        <button type="submit">Search</button>
+      </div>
+      <div class="weatherReport">
+        <div class="showWeatherData">
+          <h6><img src="./public/images/world.png" alt="" />Los Angeles</h6>
+          <h5>Today</h5>
+          <div class="daily-data-card">
+            <div class="daily-data">
+              <p class="time">Morning</p>
+              <p><img src="./public/images/morning.png" alt="" />25</p>
+            </div>
+            <div class="daily-data">
+              <p class="time">Day</p>
+              <p><img src="./public/images/morning.png" alt="" />25</p>
+            </div>
+            <div class="daily-data">
+              <p class="time">Evening</p>
+              <p><img src="./public/images/evening.png" alt="" />25</p>
+            </div>
+          </div>
+          <div class="temp-card">
+            <p>78<sup>o</sup>C</p>
+            <div class="temp-date-card">
+              <p>Sunday</p>
+              <p>22 July 2024</p>
+              <p>Mostly Sunny</p>
+            </div>
+            <div class="temp-alt-data">
+              <p>feels like 74</p>
+              <p>wind 2.4 mph</p>
+              <p>Humidity 20%</p>
+            </div>
+          </div>
+        </div>
+        <h6>
+          Unable to retrieve weather information. Please enter a location to
+          view the weather report.
+        </h6>
+      </div>
+    </div>
+  </body>
+</html>

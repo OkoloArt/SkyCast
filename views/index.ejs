@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyCast</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      body {
+        background-image: url("images/weather_background_three.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="searchName">
+        <form action="/submit" method="POST" class="searchName">
+          <input
+            placeholder="Enter a Location....."
+            type="text"
+            name="city"
+            class="input"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div class="weatherReport">
+        <% if (locals.weatherData) { %>
+        <div class="showWeatherData">
+          <h6><img src="images/world.png" alt="" /><%= weatherData.name %></h6>
+          <h5>Today</h5>
+          <div class="daily-data-card">
+            <div class="daily-data">
+              <p class="time">Morning</p>
+              <p><img src="images/morning.png" alt="" />25</p>
+            </div>
+            <div class="daily-data">
+              <p class="time">Day</p>
+              <p><img src="images/morning.png" alt="" />25</p>
+            </div>
+            <div class="daily-data">
+              <p class="time">Evening</p>
+              <p><img src="images/evening.png" alt="" />25</p>
+            </div>
+          </div>
+          <div class="temp-card">
+            <p><%= weatherData.temp %><sup>o</sup>C</p>
+            <div class="temp-date-card">
+              <p>
+                <% const days = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday"]; %> <% let day = days[new
+                Date().getDay()]; %> <%= day %>
+              </p>
+              <p>
+                <%= new Date().getDate(); %> <% const months = ["Jan", "Feb",
+                "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov",
+                "Dec"]; %> <% let month = months[new Date().getMonth()]; %> <%=
+                month %> <%= new Date().getFullYear() %>
+              </p>
+              <p><%= weatherData.description %></p>
+            </div>
+            <div class="temp-alt-data">
+              <p>feels like <%= weatherData.feelLike %></p>
+              <p>wind <%= weatherData.windSpeed %> mph</p>
+              <p>Humidity <%= weatherData.humidity %>%</p>
+            </div>
+          </div>
+        </div>
+        <% } else { %>
+        <h6>
+          Unable to retrieve weather information. <br />
+          Please enter a location to view the weather report.
+        </h6>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
